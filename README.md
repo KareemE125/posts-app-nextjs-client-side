@@ -1,6 +1,5 @@
-# Screen Shots 
-![Dark Theme](https://github.com/KareemE125/posts-app-nextjs-client-side/assets/61433385/747d968e-95f7-47bf-a26b-adcab4ec43b3)
-![Light Theme](https://github.com/KareemE125/posts-app-nextjs-client-side/assets/61433385/9a680293-f69a-439d-a508-0c49b8f32091)
+# Screen Shot
+![app](https://github.com/KareemE125/posts-app-nextjs-client-side/assets/61433385/de50fa59-78a8-4902-9ac2-dcda0e88a28f)
 
 # Project Documentation: Posts App
 
