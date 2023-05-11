@@ -1,9 +1,10 @@
 import styles from '../styles/loading.module.css'
+import sharedStyles from '../styles/shared.module.css'
 
-export default function Loading() {
+export default function LoadingSpinner() {
     return (
         <div className={styles.loadingPage}>
-            <div className={styles.loadingSpinner}></div>
+            <div className={sharedStyles.loadingSpinner}></div>
         </div>
 
     )

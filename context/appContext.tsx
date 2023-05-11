@@ -3,11 +3,6 @@
 import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 import dummyPostsList, { Post } from '../models/post';
 
-(function SeedData() {
-    if(localStorage.getItem('posts')) return;
-    localStorage.setItem('posts', JSON.stringify(dummyPostsList));
-})();
-
 
 // Create context type
 interface AppContextValue {
@@ -19,35 +14,46 @@ interface AppContextValue {
 
 // Create context default values
 const defaultAppContextValue: AppContextValue = {
-    postsList: [],
-    favoriteList: [],
-    addToFavorites: () => {},
-    removeFromFavorites: () => {},
+  postsList: [],
+  favoriteList: [],
+  addToFavorites: () => { },
+  removeFromFavorites: () => { },
 }
 
 export const AppContext = createContext<AppContextValue>(defaultAppContextValue);
 
 export function useAppContext() {
-    return useContext(AppContext);
+  return useContext(AppContext);
 }
 
 // Create the AppContext provider component
-export function AppContextProvider({ children } : {children: ReactNode}) {
+export function AppContextProvider({ children }: { children: ReactNode }) {
 
   const [postsList, setPostsList] = useState<Post[]>([]);
   const [favoriteList, setFavoriteList] = useState<Post[]>([]);
 
+  const SeedData = () => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('posts')) return;
+      localStorage.setItem('posts', JSON.stringify(dummyPostsList));
+      setPostsList(dummyPostsList);
+    }
+  }
+
+
   // Load posts and favorites lists from local storage on component mount
   useEffect(() => {
+    SeedData();
+    
     const storedPosts = localStorage.getItem('posts');
     if (storedPosts) {
-        setPostsList(JSON.parse(storedPosts));
-    }else{ setPostsList([]); } 
+      setPostsList(JSON.parse(storedPosts));
+    } else { setPostsList([]); }
 
     const storedFavorites = localStorage.getItem('favorites');
     if (storedFavorites) {
       setFavoriteList(JSON.parse(storedFavorites));
-    }else{ setFavoriteList([]); } 
+    } else { setFavoriteList([]); }
 
   }, []);
 
@@ -59,11 +65,11 @@ export function AppContextProvider({ children } : {children: ReactNode}) {
 
   // Function to add a post to the favoriteList
   const addToFavorites = (postId: string) => {
-    const newFavorite: Post | undefined = postsList.find((post) => { 
-        if(post.id === postId){
-            post.isFav = true;
-        }
-        return post.id === postId
+    const newFavorite: Post | undefined = postsList.find((post) => {
+      if (post.id === postId) {
+        post.isFav = true;
+      }
+      return post.id === postId
     });
     if (!newFavorite) return;
 
@@ -75,10 +81,10 @@ export function AppContextProvider({ children } : {children: ReactNode}) {
   const removeFromFavorites = (postId: string) => {
     const updatedFavorites = favoriteList.filter((favorite) => favorite.id !== postId);
 
-    postsList.forEach((post) => {   
-        if(post.id === postId){
-            post.isFav = false;
-        }
+    postsList.forEach((post) => {
+      if (post.id === postId) {
+        post.isFav = false;
+      }
     });
 
     setFavoriteList(updatedFavorites);

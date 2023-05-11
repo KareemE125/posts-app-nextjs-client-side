@@ -1,7 +1,7 @@
 'use client'; // Error components must be Client Components
  
 import { useEffect } from 'react';
-import styles from '../styles/home.module.css'
+import styles from '../styles/shared.module.css'
 
 export default function Error({
   error,
