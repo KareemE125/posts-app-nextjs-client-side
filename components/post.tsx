@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import React from 'react'
 import { Post } from '../models/post'
-import { NextPage } from 'next'
 import styles from '../styles/post-card.module.css'
 import { AiFillHeart } from 'react-icons/ai';
 import { useAppContext } from '../context/appContext'
