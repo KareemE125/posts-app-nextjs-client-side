@@ -1,5 +1,5 @@
 # Screen Shot
-![app](https://github.com/KareemE125/posts-app-nextjs-client-side/assets/61433385/de50fa59-78a8-4902-9ac2-dcda0e88a28f)
+![app](https://github.com/KareemE125/posts-app-nextjs-client-side/assets/61433385/684d5883-67c6-4350-bd20-140a6d6dec39)
 
 # Project Documentation: Posts App
 Project Documentation: Posts App
