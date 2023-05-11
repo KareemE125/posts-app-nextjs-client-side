@@ -1,0 +1,65 @@
+@import "./constanst";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  body {
+    background: $bgColorMob;
+    padding-bottom: 70px;
+    padding-top: 12px;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+  body {
+    background: $bgColorDesk;
+    padding-top: 70px;
+    padding-bottom: 12px;
+    margin: auto;
+    width: 50%;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #797979;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cdcdcd;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c1c1c1;
+}

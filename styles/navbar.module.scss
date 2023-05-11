@@ -1,0 +1,48 @@
+@import "./constanst";
+
+.navbar {
+  z-index: 1000;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: $bgColorNav;
+
+  a {
+    color: $txtColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .active {
+    font-size: 20px;
+    font-weight: bold;
+
+    .icons {
+      font-size: 24px !important;
+      border: 2px solid $txtColor;
+      border-radius: 50%;
+      padding: 5px;
+      box-sizing: content-box;
+    }
+  }
+
+  .icons {
+    font-size: 22px;
+  }
+
+  // Media Queries
+  @media (max-width: 700px) {
+    bottom: 0;
+  }
+
+  @media (min-width: 701px) {
+    top: 0;
+  }
+}

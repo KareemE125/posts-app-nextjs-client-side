@@ -1,0 +1,315 @@
+export type Post = {
+  id: string;
+  isFav: boolean,
+  profileImage: string;
+  ownerName: string;
+  image: string;
+  title: string;
+  description: string;
+  likes: number;
+  caption: string;
+  tags: string[];
+  commentsNumber: number;
+};
+
+// Just to seed data
+const dummyPostsList: Post[] = [
+  {
+    id: '1000',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/11.jpg',
+    ownerName: 'Emma',
+    image: 'https://images.unsplash.com/photo-1465311440653-ba9b1d9b0f5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
+    title: 'Wanderlust',
+    description: 'Exploring new destinations and embracing new cultures.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Roaming the world, collecting memories, and experiencing the beauty of diverse landscapes. Adventure awaits!',
+    tags: ['travel', 'explore', 'adventure', 'wanderlust', 'globetrotter', 'travelphotography', 'bucketlist'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1001',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/12.jpg',
+    ownerName: 'Liam',
+    image: 'https://images.unsplash.com/photo-1481988535861-271139e06469?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=890&q=80',
+    title: 'Nature\'s Beauty',
+    description: 'Getting lost in the serenity of natural landscapes.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Captivated by the enchanting beauty of nature. From breathtaking mountains to tranquil seascapes, Mother Earth never ceases to amaze!',
+    tags: ['nature', 'landscape', 'serenity', 'outdoors', 'naturelovers', 'scenicviews', 'naturalwonders'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1002',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/14.jpg',
+    ownerName: 'Noah',
+    image: 'https://images.unsplash.com/photo-1542319782-80c17b5c9b08?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
+    title: 'Architectural Marvels',
+    description: 'Marveling at the brilliance of architectural designs.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'From ancient wonders to modern skyscrapers, architecture is an art that shapes our surroundings. Captivated by the symphony of structures!',
+    tags: ['architecture', 'design', 'archilovers', 'building', 'urban', 'architecturalphotography', 'cityscape'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1003',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/15.jpg',
+    ownerName: 'Mia',
+    image: 'https://plus.unsplash.com/premium_photo-1663047790964-a4565e24729f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Bookworm Life',
+    description: 'Immersed in the world of books and literary adventures.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Exploring the realms of imagination through books. From gripping novels to thought-provoking classics, literature captivates my soul!',
+    tags: ['books', 'reading', 'literature', 'bookstagram', 'booklover', 'bibliophile', 'readinglist'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1004',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/16.jpg',
+    ownerName: 'Oliver',
+    image: 'https://plus.unsplash.com/premium_photo-1664910212393-4b35277c3889?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
+    title: 'Fitness Journey',
+    description: 'Pursuing health and fitness goals with determination.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Striving for a healthy and active lifestyle. Each workout is a step closer to achieving my fitness goals. No pain, no gain!',
+    tags: ['fitness', 'health', 'workout', 'fitspo', 'gymmotivation', 'fitnessjourney', 'active'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1005',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/17.jpg',
+    ownerName: 'Sophia',
+    image: 'https://images.unsplash.com/photo-1538330627166-33d1908c210d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    title: 'Fashionista Vibe',
+    description: 'Expressing my unique style through fashion choices.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Fashion is my form of self-expression. From trendy outfits to timeless classics, I love experimenting with different styles!',
+    tags: ['fashion', 'style', 'outfitinspiration', 'fashionblogger', 'streetstyle', 'ootd', 'trendy'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1111',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/12.jpg',
+    ownerName: 'Liam',
+    image: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    title: 'Nature\'s Beauty',
+    description: 'Getting lost in the serenity of natural landscapes.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Captivated by the enchanting beauty of nature. From breathtaking mountains to tranquil seascapes, Mother Earth never ceases to amaze!',
+    tags: ['nature', 'landscape', 'serenity', 'outdoors', 'naturelovers', 'scenicviews', 'naturalwonders'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1069',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/13.jpg',
+    ownerName: 'Ava',
+    image: 'https://plus.unsplash.com/premium_photo-1675195897520-7c193bb67357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Artistic Expression',
+    description: 'Unleashing creativity through various art forms.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Diving into the world of art, where imagination knows no bounds. From paintings to sculptures, art is a reflection of the soul!',
+    tags: ['art', 'creativity', 'expression', 'artistsoninstagram', 'artistic', 'inspiration', 'visualart'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1077',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/18.jpg',
+    ownerName: 'Ethan',
+    image: 'https://images.unsplash.com/photo-1605522469906-3fe226b356bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80',
+    title: 'Creative Cooking',
+    description: 'Unleashing culinary creativity in the kitchen.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Exploring the art of cooking and experimenting with flavors. From delectable dishes to mouthwatering desserts, culinary adventures await!',
+    tags: ['cooking', 'foodie', 'culinary', 'chefsofinstagram', 'foodphotography', 'homemade', 'delicious'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1089',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/19.jpg',
+    ownerName: 'Charlotte',
+    image: 'https://images.unsplash.com/photo-1626915656155-9288c1448045?ixlib=rb-4.0.3&ixid=MnwxMj',
+    title: 'Morning Bliss',
+    description: 'Embracing the tranquility of peaceful mornings.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Greeted by the gentle rays of the sun, embracing stillness and savoring the beauty of tranquil mornings. A peaceful start to the day!',
+    tags: ['morning', 'tranquility', 'peaceful', 'sunrise', 'serene', 'calm', 'morningmotivation'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1023',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/20.jpg',
+    ownerName: 'William',
+    image: 'https://images.unsplash.com/photo-1554188126-415e2408677b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    title: 'Adventure Awaits',
+    description: 'Embarking on thrilling adventures and adrenaline-filled experiences.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Seeking the thrill of adventure and embracing adrenaline-fueled experiences. Life is meant to be lived on the edge!',
+    tags: ['adventure', 'thrillseeker', 'explore', 'wanderer', 'outdoors', 'adrenalinejunkie', 'travel'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1055',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/21.jpg',
+    ownerName: 'James',
+    image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Musical Melodies',
+    description: 'Immersed in the enchanting world of music.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Lost in the symphony of melodies, where every note evokes emotions. Music has the power to touch the depths of the soul!',
+    tags: ['music', 'musical', 'melodies', 'musician', 'musiclover', 'sound', 'harmony'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1026',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/22.jpg',
+    ownerName: 'Harper',
+    image: 'https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
+    title: 'Sunset Serenade',
+    description: 'Capturing the mesmerizing beauty of sunsets.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Mesmerized by the vibrant hues of the setting sun, as the world is painted in golden and crimson tones. Nature\'s masterpiece!',
+    tags: ['sunset', 'goldenhour', 'naturephotography', 'sunsets', 'sky', 'evening', 'scenery'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1024',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/23.jpg',
+    ownerName: 'Benjamin',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Tech Enthusiast',
+    description: 'Exploring the wonders of technology and innovation.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Immersed in the world of technology, where innovation knows no bounds. From cutting-edge gadgets to groundbreaking ideas!',
+    tags: ['technology', 'innovation', 'tech', 'gadgets', 'future', 'digital', 'geek'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1014',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/24.jpg',
+    ownerName: 'Amelia',
+    image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Nature\'s Retreat',
+  description: 'Finding solace in the beauty of nature.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Seeking refuge in the serenity of nature, where tranquility and beauty intertwine. Exploring the wonders of the natural world!',
+    tags: ['nature', 'landscape', 'outdoors', 'naturelovers', 'explore', 'wilderness', 'scenic'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1015',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/25.jpg',
+    ownerName: 'Henry',
+    image: 'https://images.unsplash.com/photo-1542372147193-a7aca54189cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    title: 'Coffee Connoisseur',
+    description: 'Indulging in the rich flavors of specialty coffee.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Savoring every sip of the aromatic brew, exploring the world of coffee, from single-origin delights to handcrafted creations.',
+    tags: ['coffee', 'coffeelover', 'barista', 'coffeeholic', 'coffeetime', 'specialtycoffee', 'caffeine'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1016',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/26.jpg',
+    ownerName: 'Evelyn',
+    image: 'https://images.unsplash.com/photo-1535157412991-2ef801c1748b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
+    title: 'Artistic Expression',
+    description: 'Unleashing creativity through various art forms.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Diving into the world of art, where brushes dance on canvases and imagination takes flight. Exploring different art forms!',
+    tags: ['art', 'creativity', 'painting', 'drawing', 'artist', 'artwork', 'creative'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1017',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/14.jpg',
+    ownerName: 'Noah',
+    image: 'https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Architectural Marvels',
+    description: 'Marveling at the brilliance of architectural designs.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'From ancient wonders to modern skyscrapers, architecture is an art that shapes our surroundings. Captivated by the symphony of structures!',
+    tags: ['architecture', 'design', 'archilovers', 'building', 'urban', 'architecturalphotography', 'cityscape'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1018',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/15.jpg',
+    ownerName: 'Mia',
+    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+    title: 'Bookworm Life',
+    description: 'Immersed in the world of books and literary adventures.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Exploring the realms of imagination through books. From gripping novels to thought-provoking classics, literature captivates my soul!',
+    tags: ['books', 'reading', 'literature', 'bookstagram', 'booklover', 'bibliophile', 'readinglist'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1019',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/men/16.jpg',
+    ownerName: 'Oliver',
+    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+    title: 'Fitness Journey',
+    description: 'Pursuing health and fitness goals with determination.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Striving for a healthy and active lifestyle. Each workout is a step closer to achieving my fitness goals. No pain, no gain!',
+    tags: ['fitness', 'health', 'workout', 'fitspo', 'gymmotivation', 'fitnessjourney', 'active'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+  {
+    id: '1020',
+    isFav: false,
+    profileImage: 'https://randomuser.me/api/portraits/women/17.jpg',
+    ownerName: 'Sophia',
+    image: 'https://images.unsplash.com/photo-1535157412991-2ef801c1748b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80',
+    title: 'Fashionista Vibe',
+    description: 'Expressing my unique style through fashion choices.',
+    likes: Math.floor(Math.random() * 150) + 1,
+    caption:
+      'Fashion is my form of self-expression. From trendy outfits to timeless classics, I love experimenting with different styles!',
+    tags: ['fashion', 'style', 'outfitinspiration', 'fashionblogger', 'streetstyle', 'ootd', 'trendy'],
+    commentsNumber: Math.floor(Math.random() * 50) + 1,
+  },
+];
+
+export default dummyPostsList;
+
+

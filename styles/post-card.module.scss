@@ -1,0 +1,122 @@
+@import "./constanst";
+
+.layout {
+  padding: 0 12px 12px 12px;
+}
+
+.card {
+  width: 100%;
+  padding: 4px 0;
+  background-color: $postBgColor;
+  border-radius: 15px;
+  box-shadow: $postShadow;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+
+  .header {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $hyperTxtColor;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    h4 {
+      cursor: pointer;
+    }
+  }
+
+  .body {
+    position: relative;
+
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .imgFooter {
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      color: $postImgFooterTxt;
+      background-color: $postImgFooterBg;
+
+      .icon {
+        font-size: 24px;
+        cursor: pointer;
+        color: $postIconColor;
+        &:hover {
+          color: red;
+        }
+
+        &.fav {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding: 4px 12px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    font-size: 13px;
+
+    .likes {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: $hyperTxtColor;
+
+      .icon {
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .caption {
+      margin-bottom: 4px;
+      color: $postCationTxt;
+    }
+
+    .tags {
+      margin-bottom: 12px;
+      color: $hyperTxtColor;
+
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .comments {
+      color: $postCommentTxt;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+}
