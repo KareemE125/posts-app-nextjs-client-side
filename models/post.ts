@@ -99,7 +99,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1111',
+    id: '1006',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/men/12.jpg',
     ownerName: 'Liam',
@@ -113,7 +113,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1069',
+    id: '1007',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/women/13.jpg',
     ownerName: 'Ava',
@@ -127,7 +127,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1077',
+    id: '1008',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/men/18.jpg',
     ownerName: 'Ethan',
@@ -141,7 +141,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1089',
+    id: '1009',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/women/19.jpg',
     ownerName: 'Charlotte',
@@ -155,7 +155,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1023',
+    id: '1010',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/men/20.jpg',
     ownerName: 'William',
@@ -169,7 +169,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1055',
+    id: '1011',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/men/21.jpg',
     ownerName: 'James',
@@ -183,7 +183,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1026',
+    id: '1012',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/women/22.jpg',
     ownerName: 'Harper',
@@ -197,7 +197,7 @@ const dummyPostsList: Post[] = [
     commentsNumber: Math.floor(Math.random() * 50) + 1,
   },
   {
-    id: '1024',
+    id: '1013',
     isFav: false,
     profileImage: 'https://randomuser.me/api/portraits/men/23.jpg',
     ownerName: 'Benjamin',
